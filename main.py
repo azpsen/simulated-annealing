@@ -22,7 +22,7 @@ print(f"Goal is {eagle_mtn} at height {fitness_func(eagle_mtn)}")
 
 print()
 prev = 0
-for i in range(0, len(sln) + 1):
+for i in range(0, len(sln)):
     if not sln[i] == prev:
         print(f"{sln[i][0]}, {sln[i][1]}")
         prev = sln[i]
