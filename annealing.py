@@ -30,6 +30,7 @@ class Annealer:
     def anneal(self, get_list=False):
         coords = []
         current = self.initial_state
+        best = current
 
         for t in range(0, sys.maxsize):
             if get_list:
@@ -41,13 +42,16 @@ class Annealer:
                 if DEBUG:
                     print(f"Finished after {t} iterations")
                 if get_list:
+                    coords.append(best)
                     return coords
                 else:
-                    return current
+                    return best
 
             next_neighbor = self.successor(current)
 
             delta_e = self.value(next_neighbor) - self.value(current)
 
-            if delta_e > 0 or (exp(delta_e/T) > uniform(0, 1)):
+            if delta_e > 0 or (exp(delta_e / T) > uniform(0, 1)):
                 current = next_neighbor
+                if self.value(current) > self.value(best):
+                    best = current
