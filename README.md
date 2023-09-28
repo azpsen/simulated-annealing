@@ -24,7 +24,7 @@ For each image, the following parameters were used:
 ![Successful path using elitism](img/success_elitism.png)
 
 ## Failure
-This image is an example of the algorithm finding a local optimum rather than the global optimum. In this case, the algorithm happened to place all of its points far west of the goal, so no areas of higher elevation in northwest minnesota were found. Because it never even looked near the solution, elitism did not prevent this failure. A nonzero failure rate with results such as this is part of the trade-off between performance and accuracy I arrived at when setting the parameters.
+This image is an example of the algorithm finding a local optimum rather than the global optimum. In this case, the algorithm did not look in the area of the goal, so no areas of higher elevation in northwest minnesota were found. Because it never looked close enough to the solution to find a point of high elevation, elitism did not prevent this failure. A nonzero failure rate with results such as this is part of the trade-off between performance and accuracy I arrived at when setting the parameters.
 
 When creating this image, the program was run using the same parameters as the other images.
 
