@@ -1,17 +1,3 @@
-# Simulated Annealing
-# current = make_node(initial_state(problem))
-# for t = 1 to inf
-#   T = schedule(t)
-#   if T == 0:
-#     return current
-#   next = randomly selected successor of current
-#   deltaE = value(next) - value(current)
-#   if deltaE > 0:
-#     current = next
-#   else current = next only with probability exp(deltaE / T)
-
-# TODO Add adaptive annealing schedulers
-
 from random import uniform
 from math import exp
 
