@@ -2,9 +2,9 @@
 An implementation of the simulated annealing algorithm used to approximate the global optimum; in this case used to estimate the highest point in Minnesota (Eagle Mountain).
 
 ## Success
-These images show several of the successful runs of this simulated annealing algorithm. In each image, the start and end points of the algorithm are labeled, as well as the goal. The points in between vary in color in accordance to their position in the iteration; from white (early values) to dark green (values closer to the end).
+These images show several of the successful runs of this simulated annealing algorithm. In each image, the start and end points of the algorithm are labeled, as well as the goal. The points in between vary in color in accordance to their position in the iteration; from blue (early values) to light green (values closer to the end).
 
-Most of the paths will either follow a track where early on, the points will scatter around the state and slowly converge on Eagle Mountain as they become darker green; or move more or less directly toward the goal. However, in some cases the points converge on a different location as the algorithm runs its course but the end is still shown near the goal. In these instances, elitism is being applied; where the best solution found so far is held and compared with each subsequent point and, in these cases, replaces the final point.
+Most of the paths will either follow a track where early on, the points will scatter around the state and slowly converge on Eagle Mountain as they become more green; or move more or less directly toward the goal. However, in some cases the points converge on a different location as the algorithm runs its course but the end is still shown near the goal. In these instances, elitism is being applied; where the best solution found so far is held and compared with each subsequent point and, in these cases, replaces the final point.
 
 For each image, the following parameters were used:
 
