@@ -53,7 +53,7 @@ def create_point_label(gdf, text, color, size, offset):
             xy=[row.geometry.x, row.geometry.y],
             xytext=offset_coords,
             textcoords="offset points",
-            bbox=dict(boxstyle='round', fc='w', lw=2, alpha=0.8),
+            bbox=dict(boxstyle='round', fc='black', lw=2, alpha=0.8),
         )
 
 
@@ -63,18 +63,23 @@ def plot_point(coords, text, color, size, offset='down'):
 
 
 def visualize(sln, goal):
+
+    # Style the plot
+    plt.style.use('dark_background')
+    plt.rcParams["figure.figsize"] = (10, 10)
+
     # Plot map of Minnesota
     usa = gpd.read_file('gis/states.shp')
-    usa[usa.STATE_ABBR == 'MN'].plot()
+    usa[usa.STATE_ABBR == 'MN'].plot(edgecolor='white', color='dimgrey')
 
     # Plot solution path
     gdf = create_multipoint_gdf(sln)
-    gdf.plot(marker='o', cmap='Greens', markersize=5, ax=plt.gca())
+    gdf.plot(marker='o', cmap='winter', markersize=5, ax=plt.gca())
 
     # Plot start, end, and goal with labels
-    plot_point(sln[0], "Start (violet)", 'violet', 10)
-    plot_point(sln[-1], "End (red)", 'red', 10, offset='up')
-    plot_point(goal, "Goal (yellow)", 'yellow', 10)
+    plot_point(sln[0], "Start", 'red', 10)
+    plot_point(goal, "Goal", 'red', 10)
+    plot_point(sln[-1], "End", 'red', 10, offset='up')
 
     plt.title("Minnesota")
     plt.show()
