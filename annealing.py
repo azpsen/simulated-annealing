@@ -27,18 +27,23 @@ class Annealer:
         self.schedule = schedule_func
         self.successor = successor_func
 
-    def anneal(self):
+    def anneal(self, get_list=False):
         coords = []
         current = self.initial_state
 
         for t in range(0, sys.maxsize):
-            coords.append(current)
+            if get_list:
+                if len(coords) == 0 or not coords[-1] == current:
+                    coords.append(current)
             T = self.schedule(t)
 
             if T == 0:
                 if DEBUG:
                     print(f"Finished after {t} iterations")
-                return coords
+                if get_list:
+                    return coords
+                else:
+                    return current
 
             next_neighbor = self.successor(current)
 
